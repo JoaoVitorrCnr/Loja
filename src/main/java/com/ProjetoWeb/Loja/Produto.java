@@ -8,7 +8,7 @@ public class Produto {
     private int estoque;
 
 
-    // Getters e Setters
+
     public int getId() {
         return id;
     }

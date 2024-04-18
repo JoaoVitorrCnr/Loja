@@ -35,7 +35,7 @@ public class ProdutoDao {
         } catch (SQLException  ex) {
             System.out.println("Falha na conexão! Verifique o console de saída: " + ex.getMessage());
         }finally {
-            // Fechar a conexão no bloco finally para garantir que seja fechada, independentemente de ocorrer uma exceção
+
             try {
                 if (stmt != null) {
                     stmt.close();
@@ -81,7 +81,7 @@ public class ProdutoDao {
         } catch (SQLException ex) {
             System.out.println("Falha na conexão! Verifique o console de saída: " + ex.getMessage());
         } finally {
-            // Fecha as conexões e recursos
+
             try {
                 if (rs != null) {
                     rs.close();
@@ -107,12 +107,11 @@ public class ProdutoDao {
             connection = Conexao.getConnection();
             String query = "DELETE FROM produtos WHERE id = (?)";
             stmt = connection.prepareStatement(query);
-            stmt.setInt(1, p.getId()); // Substitua getId pelo método que retorna o id do produto
+            stmt.setInt(1, p.getId()); 
             stmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex);
         } finally {
-            // Feche as conexões e recursos
             if (stmt != null) {
                 stmt.close();
             }
@@ -122,6 +121,54 @@ public class ProdutoDao {
         }
     }
 
+    public Produto obterProduto(int id) {
+        Produto produto = null;
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+    
+        try {
+            connection = Conexao.getConnection();
+            String query = "SELECT id, nome, descricao, preco, estoque FROM produtos WHERE id = ?";
+            stmt = connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+    
+            if (rs.next()) {
+                String nome = rs.getString("nome");
+                String descricao = rs.getString("descricao");
+                double preco = rs.getDouble("preco");
+                int estoque = rs.getInt("estoque");
+    
+                produto = new Produto();
+                produto.setId(id);
+                produto.setNome(nome);
+                produto.setDescricao(descricao);
+                produto.setPreco(preco);
+                produto.setEstoque(estoque);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Falha na conexão! Verifique o console de saída: " + ex.getMessage());
+        } finally {
+     
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Erro ao fechar a conexão: " + e.getMessage());
+            }
+        }
+    
+        return produto;
+    }
+    
     
 }
 

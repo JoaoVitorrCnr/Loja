@@ -32,7 +32,7 @@ public class LojistaDao {
         }catch(SQLException ex){
             System.out.println(ex);
         } finally {
-            // Feche as conexões e recursos
+   
             if (rs != null) {
                 rs.close();
             }

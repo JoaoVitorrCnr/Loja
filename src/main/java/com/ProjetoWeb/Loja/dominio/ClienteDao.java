@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.ProjetoWeb.Loja.Cliente;
 import com.ProjetoWeb.Loja.Conexao;
 
-//import java.net.URISyntaxException;
+
 
 @Repository
 public class ClienteDao {
@@ -32,7 +32,7 @@ public class ClienteDao {
         } catch (SQLException  ex) {
             System.out.println("Falha na conexão! Verifique o console de saída: " + ex.getMessage());
         } finally {
-            // Fechar a conexão no bloco finally para garantir que seja fechada, independentemente de ocorrer uma exceção
+
             try {
                 if (stmt != null) {
                     stmt.close();
@@ -66,7 +66,7 @@ public class ClienteDao {
         }catch(SQLException ex){
             System.out.println(ex);
         } finally {
-            // Feche as conexões e recursos
+   
             if (rs != null) {
                 rs.close();
             }

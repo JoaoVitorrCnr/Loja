@@ -7,6 +7,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String index() {
-        return "Home.html"; // Este é o nome do arquivo HTML que você quer retornar
+        return "Home.html"; 
     }
 }

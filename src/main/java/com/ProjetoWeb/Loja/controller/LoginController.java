@@ -42,7 +42,7 @@ public class LoginController {
            
             if(clienteLoginSucesso){
                 session.setAttribute("cliente", cliente);
-                return "redirect:/HomeCliente.html";
+                return "redirect:/listaProdutosC";
             }
 
             Boolean lojistaLoginSucesso = lojistaDao.buscarLojista(lojista);
@@ -54,7 +54,7 @@ public class LoginController {
     
             return "redirect:/Login.html?error";
         } catch (SQLException ex) {
-            ex.printStackTrace(); // Trate a exceção apropriadamente, por exemplo, redirecionando para uma página de erro.
+            ex.printStackTrace(); 
             return "redirect:/Login.html?error";
         }
     }
@@ -64,8 +64,13 @@ public class LoginController {
     }
      @GetMapping("/Logout")
     public String logout(HttpSession session) {
-        // Invalida a sessão, removendo todos os atributos associados a ela
+  
         session.invalidate();
         return "redirect:/Home.html";
+    }
+
+    @GetMapping("/cadastro")
+    public String exibirPaginaCadastro() {
+        return "Cadastro.html"; // Nome do arquivo HTML da página de cadastro
     }
 }

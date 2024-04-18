@@ -66,3 +66,7 @@ h1 {
 .product-actions button:hover {
     background-color: #ccc;
 }
+
+.logout-btn {
+    float: right;
+}

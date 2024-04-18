@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #3498db; /* Cor de fundo azul */
+    background-color: #3498db; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,15 +10,14 @@ body {
 
 .container {
     text-align: center;
-    background-color: #fff; /* Cor de fundo da caixa */
+    background-color: #fff; 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra na caixa */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 button {
-    background-color: #2ecc71; /* Cor de fundo verde */
-    color: #fff;
+    background-color: #2ecc71;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -27,5 +26,5 @@ button {
 }
 
 button:hover {
-    background-color: #27ae60; /* Cor de fundo verde mais escura ao passar o mouse */
+    background-color: #27ae60; 
 }

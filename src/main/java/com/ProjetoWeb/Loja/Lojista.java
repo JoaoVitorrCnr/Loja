@@ -6,7 +6,7 @@ public class Lojista {
     private String email;
     private String senha;
 
-    // Getters e Setters
+
     public int getId() {
         return id;
     }

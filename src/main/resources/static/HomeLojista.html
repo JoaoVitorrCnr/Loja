@@ -11,7 +11,7 @@
 <div class="container">
     <h1>Lista de Produtos</h1>
     <ul id="product-list" class="product-list">
-        <!-- Os produtos serão adicionados aqui dinamicamente -->
+       
     </ul>
     <div class="add-product">
         <h2>Adicionar Produto</h2>
@@ -30,7 +30,7 @@
 </div>
 
 <script>
-    // Função para adicionar um novo produto à lista
+  
     function addProductToList(product) {
         var productList = document.getElementById("product-list");
         var productItem = document.createElement("li");
@@ -48,28 +48,27 @@
         productList.appendChild(productItem);
     }
 
-    // Função para remover um produto da lista
+   
     function removeProduct(productId) {
-        // Adicione aqui a lógica para remover o produto do banco de dados
-        // Depois de remover com sucesso, remova o item da lista HTML
+       
         var productItem = document.getElementById("product-" + productId);
         productItem.remove();
     }
 
-    // Função para editar um produto
+    
     function editProduct(productId) {
-        // Adicione aqui a lógica para editar o produto
+        
     }
 
-    // Listener para o formulário de adição de produto
+   
     document.getElementById("add-product-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
+        event.preventDefault(); 
         var productName = document.getElementById("product-name").value;
         var productDescription = document.getElementById("product-description").value;
         var productPrice = document.getElementById("product-price").value;
         var productQuantity = document.getElementById("product-quantity").value;
 
-        // Adicione aqui a lógica para enviar os dados do produto para o servidor e adicionar à lista
+       
         var newProduct = {
             nome: productName,
             descricao: productDescription,
@@ -77,10 +76,10 @@
             estoque: productQuantity
         };
 
-        // Chamada de exemplo para a função addProductToList
+        
         addProductToList(newProduct);
 
-        // Limpar os campos do formulário após a adição do produto
+        
         document.getElementById("add-product-form").reset();
     });
 </script>
